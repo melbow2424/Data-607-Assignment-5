@@ -1,0 +1,31 @@
+[
+   {
+      "title": "We Are Never Meeting in Real Life",
+      "author": "Samantha Irby",
+      "pages": 288,
+      "genre": "Humor",
+      "rating": 3.91
+   },
+   {
+      "title": "Coraline",
+      "author": "Neil Gaiman",
+      "pages": 176,
+      "genre": "Dark Fantasy",
+      "rating": 4.09
+   },
+   {
+      "title": "R for Data Science",
+      "author": [ 
+         {
+            "name":"Garrett Grolemund" 
+         },
+         {
+            "name":"Hadley Wickham"
+         }
+      ],
+      "pages": 522,
+      "genre": "Education",
+      "rating": 4.57
+   }
+  
+]
