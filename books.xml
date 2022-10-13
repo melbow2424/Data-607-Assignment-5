@@ -1,0 +1,28 @@
+<bookListing>
+  <book>
+    <title>We Are Never Meeting in Real Life</title>
+    <author>Samantha Irby</author>
+    <pages>288</pages>
+    <genre>Humor</genre>
+    <rating>3.91</rating>
+  </book>
+  <book>
+    <title>Coraline</title>
+    <author>Neil Gaiman</author>
+    <pages>176</pages>
+    <genre>Dark Fantasy</genre>
+    <rating>4.09</rating>
+  </book>
+  <book>
+    <title>R for Data Science</title>
+    <author>
+      <name>Garrett Grolemund</name>
+    </author>
+    <author>
+      <name>Hadley Wickham</name>
+    </author>
+    <pages>522</pages>
+    <genre>Education</genre>
+    <rating>4.57</rating>
+  </book>
+</bookListing>
