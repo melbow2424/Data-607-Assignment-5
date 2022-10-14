@@ -1,0 +1,63 @@
+---
+title: "Data 607 Assignment 5"
+author: "Melissa Bowman"
+date: "2022-10-14"
+output: html_document
+---
+
+In Assignment 5, three different files where separately created in a text editor. These files were HTML (using an html table), XML, and JSON formats. The files were then uploaded to a GitHub repository when the files were transformed into data frames using R. 
+
+### Reading a JSON file from URL then creating a Data Frame. 
+```{r json_data_frame}
+
+#Library used
+library(jsonlite)
+
+# A function in jsonlite fromJSON converts JSON content to R objects. 
+json_data = fromJSON("https://raw.githubusercontent.com/melbow2424/Data-607-Assignment-5/main/books.json")
+```
+### Reading a XML file from URL then creating a Data Frame. 
+```{r xml_data_frame}
+#Libraries used
+library(XML)
+library(plyr)
+library("xml2")
+
+#Reads XML file from the xml2 package 
+xml_file <- read_xml("https://raw.githubusercontent.com/melbow2424/Data-607-Assignment-5/main/books.xml")
+
+# Could not get the XML file directly from the url reading so parse the info.
+xml_format <- xmlParse(file = xml_file)
+
+#Idply for every element in a list, a function is applied, here xmlToList and data.frame, and then a data frame is created. xmlToList function creates a list from xml nodes.
+xml_data <- ldply(xmlToList(xml_format), data.frame)
+```
+### Reading a HTML file from URL then creating a Data Frame. 
+```{r html_data_frame}
+
+library(rvest)
+library(RCurl)
+library(data.table)
+
+#Downloads the url from the RCurl package 
+html_file <- getURL('https://raw.githubusercontent.com/melbow2424/Data-607-Assignment-5/main/books.html')
+
+#Reads data from HTML tables (if formatted as an HTML table). Comes from XML package. This created a list.
+tables = readHTMLTable(html_file, as.data.frame = TRUE)
+
+#From that list I used rbindlist to create a data table
+html_data <- rbindlist(tables)
+```
+### Viewing all Data frames: 
+```{r print_data_frame}
+print(json_data)
+
+print(xml_data)
+
+print(html_data)
+```
+### Conclusion: 
+
+Each file needed to be imported into R differently due to the structure of each file. Also, each data frame did not create identical layouts. The json data frame split the two authors from the R for Data Science by a comma where the xml created new columns for the two authors names. The html data frame had the two authors from the R for Data Science book separated by a | but that was written into the file. That had nothing to do with the R coded inputs. 
+
+
